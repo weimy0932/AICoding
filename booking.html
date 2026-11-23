@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>在线预订 · 暖炉小馆</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-booking">
+
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><span class="logo-icon">🔥</span><span class="logo-text">暖炉小馆</span></a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="main-nav" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="dishes.html">菜品</a></li>
+          <li><a href="about.html">门店</a></li>
+          <li><a href="booking.html" class="active">预订</a></li>
+          <li><a href="contact.html">联系</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <h1>在线预订</h1>
+      <p>填写下方信息，我们将为您预留最佳餐位</p>
+    </div>
+  </section>
+
+  <!-- ============ 预订表单区 ============ -->
+  <section class="section booking-section">
+    <div class="container booking-container">
+
+      <!-- 左侧：表单 -->
+      <div class="booking-form-wrap">
+        <form id="booking-form" class="booking-form" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-name">姓名 <span class="req">*</span></label>
+              <input type="text" id="b-name" name="name" maxlength="20" placeholder="请输入您的称呼" autocomplete="name" required />
+              <small class="form-error" data-for="b-name"></small>
+            </div>
+            <div class="form-group">
+              <label for="b-phone">手机号 <span class="req">*</span></label>
+              <input type="tel" id="b-phone" name="phone" pattern="^1[3-9]\d{9}$" maxlength="11" placeholder="请输入 11 位手机号" autocomplete="tel" required />
+              <small class="form-error" data-for="b-phone"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-date">预订日期 <span class="req">*</span></label>
+              <input type="date" id="b-date" name="date" required />
+              <small class="form-error" data-for="b-date"></small>
+            </div>
+            <div class="form-group">
+              <label for="b-time">到店时间 <span class="req">*</span></label>
+              <select id="b-time" name="time" required>
+                <option value="">请选择时间</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+              </select>
+              <small class="form-error" data-for="b-time"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-guests">用餐人数 <span class="req">*</span></label>
+              <div class="stepper">
+                <button type="button" class="step-btn" data-action="minus" aria-label="减少">−</button>
+                <input type="number" id="b-guests" name="guests" min="1" max="20" value="2" readonly required />
+                <button type="button" class="step-btn" data-action="plus" aria-label="增加">+</button>
+              </div>
+              <small class="form-error" data-for="b-guests"></small>
+            </div>
+            <div class="form-group">
+              <label for="b-area">座位偏好</label>
+              <select id="b-area" name="area">
+                <option value="any">任意安排</option>
+                <option value="hall">大厅散座</option>
+                <option value="window">靠窗位置</option>
+                <option value="booth">包厢（需 ≥6 人）</option>
+                <option value="quiet">安静角落</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="b-note">备注</label>
+            <textarea id="b-note" name="note" rows="3" maxlength="200" placeholder="如有忌口、生日布置等特殊需求，请在此说明"></textarea>
+            <div class="char-count"><span id="char-used">0</span> / 200</div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">
+              确认预订
+            </button>
+            <p class="form-tip">提交后我们会在 15 分钟内与您电话确认</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- 右侧：提示 -->
+      <aside class="booking-sidebar">
+        <div class="info-panel">
+          <h3>📞 预订专线</h3>
+          <p class="phone-big">400-888-6666</p>
+          <p>工作时间内来电可即时确认，高峰期推荐在线预订。</p>
+        </div>
+
+        <div class="info-panel">
+          <h3>🕒 可预订时段</h3>
+          <ul class="check-list">
+            <li>午餐 11:00 - 13:30</li>
+            <li>晚餐 17:00 - 20:30</li>
+            <li>提前 3 天可预订包厢</li>
+          </ul>
+        </div>
+
+        <div class="info-panel">
+          <h3>💡 温馨提示</h3>
+          <ul class="check-list">
+            <li>节假日与周末建议提前预订</li>
+            <li>到店后 15 分钟未确认，座位可能释放</li>
+            <li>如需取消请提前 2 小时告知</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 预订成功弹窗 ============ -->
+  <div class="modal" id="success-modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="关闭" data-close>×</button>
+      <div class="modal-icon">✅</div>
+      <h3 id="modal-title">预订提交成功！</h3>
+      <p id="modal-msg">我们已收到您的预订请求，稍后将通过电话与您确认。</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" data-close>关闭</button>
+        <a href="index.html" class="btn btn-primary">返回首页</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="logo"><span class="logo-icon">🔥</span><span class="logo-text">暖炉小馆</span></div>
+        <p class="footer-about">用心烹饪每一道家常菜，让每位客人都像回家吃饭。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="dishes.html">菜品</a></li>
+          <li><a href="about.html">门店介绍</a></li>
+          <li><a href="booking.html">在线预订</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>营业时间</h4>
+        <ul class="no-dot">
+          <li>周一至周四 · 11:00 - 21:00</li>
+          <li>周五至周日 · 11:00 - 22:00</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>联系方式</h4>
+        <ul class="no-dot">
+          <li>📞 400-888-6666</li>
+          <li>📍 北京市朝阳区暖炉路 88 号</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© 2026 暖炉小馆 Nuanlu Guanli. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <button id="back-top" class="back-top" aria-label="返回顶部">↑</button>
+
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

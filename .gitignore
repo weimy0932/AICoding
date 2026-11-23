@@ -1,0 +1,27 @@
+# ==== 运行时 / Python ====
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.env
+.env.local
+
+# ==== 编辑器 ====
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ==== 系统 ====
+*.log
+*.tmp
+*.bak
+
+# ==== Node（预留）====
+node_modules/
+npm-debug.log*
+yarn-error.log*

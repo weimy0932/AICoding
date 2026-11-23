@@ -1,0 +1,176 @@
+/* ======================================================
+   暖炉小馆 · 响应式样式 (responsive.css)
+   断点：≤480px 手机 | 481-768px 大手机/小平板 | 769-1024px 平板 | >1024px PC
+   ====================================================== */
+
+/* ============ 平板 (≤1024px) ============ */
+@media (max-width: 1024px) {
+  .container { padding: 0 20px; }
+  .section { padding: 56px 0; }
+  .section-head { margin-bottom: 36px; }
+  .section-title { font-size: 28px; }
+
+  /* 菜品网格 */
+  .dish-grid { grid-template-columns: repeat(3, 1fr); }
+  .dish-grid-lg { grid-template-columns: repeat(3, 1fr); }
+
+  /* 特色 */
+  .features-grid { gap: 20px; }
+  .feature-card { padding: 32px 20px; }
+
+  /* 品牌故事 */
+  .brand-story { padding: 60px 0; }
+  .story-container { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* 门店信息 */
+  .info-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* 画廊 */
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+
+  /* 预订 */
+  .booking-container { grid-template-columns: 1fr; gap: 28px; }
+
+  /* 联系 */
+  .contact-container { grid-template-columns: 1fr; gap: 28px; }
+
+  /* 页脚 */
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+  /* CTA */
+  .cta h2 { font-size: 26px; }
+}
+
+/* ============ 大手机 / 小平板 (≤768px) ============ */
+@media (max-width: 768px) {
+  :root { --header-h: 60px; }
+
+  /* 汉堡菜单 */
+  .nav-toggle { display: flex; }
+  .main-nav {
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0;
+    background: rgba(255, 248, 240, .98);
+    backdrop-filter: blur(12px);
+    padding: 16px 24px;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: transform .35s var(--ease), opacity .3s var(--ease);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .main-nav.is-open { transform: translateY(0); opacity: 1; }
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .nav-list li { border-bottom: 1px solid var(--color-border); }
+  .nav-list li:last-child { border-bottom: none; }
+  .nav-list a {
+    padding: 14px 12px;
+    font-size: 16px;
+  }
+  .nav-list a::after { display: none; }
+  .nav-list a.active {
+    background: rgba(232, 93, 38, .08);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0;
+  }
+
+  /* Hero */
+  .hero { min-height: 480px; padding-top: calc(var(--header-h) + 24px); }
+  .hero-actions { flex-direction: column; align-items: stretch; padding: 0 20px; }
+  .hero-actions .btn { width: 100%; }
+
+  /* 菜品网格 */
+  .dish-grid { grid-template-columns: repeat(2, 1fr); }
+  .dish-grid-lg { grid-template-columns: repeat(2, 1fr); }
+
+  /* 特色 */
+  .features-grid { grid-template-columns: 1fr; gap: 16px; }
+  .feature-card { padding: 28px 20px; }
+
+  /* 品牌故事 */
+  .story-container { grid-template-columns: 1fr; gap: 32px; }
+  .story-visual { order: -1; max-width: 320px; margin: 0 auto; }
+
+  /* 门店信息 */
+  .info-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* 画廊 */
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+
+  /* 预订表单 */
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .booking-form-wrap { padding: 24px 20px; }
+
+  /* 联系信息 */
+  .contact-info { grid-template-columns: 1fr 1fr; }
+  .contact-form-wrap { padding: 24px 20px; }
+
+  /* 筛选栏 */
+  .filter-group { gap: 8px; }
+  .filter-label { padding-top: 6px; font-size: 13px; }
+  .chip { padding: 6px 14px; font-size: 12.5px; }
+
+  /* 页脚 */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .site-footer { padding-top: 40px; }
+
+  /* 返回顶部 */
+  .back-top { right: 20px; bottom: 60px; width: 42px; height: 42px; }
+
+  /* 弹窗 */
+  .modal-dialog { padding: 32px 24px 24px; }
+}
+
+/* ============ 手机 (≤480px) ============ */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .section { padding: 44px 0; }
+  .section-title { font-size: 24px; }
+  .eyebrow { font-size: 12px; letter-spacing: 1.5px; }
+
+  /* Hero */
+  .hero { min-height: 420px; }
+  .hero-title { font-size: 32px; }
+  .hero-desc { font-size: 15px; }
+
+  /* 菜品网格 */
+  .dish-grid { grid-template-columns: 1fr; gap: 16px; }
+  .dish-grid-lg { grid-template-columns: 1fr; }
+
+  /* 画廊 */
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 160px; }
+  .gallery-item:nth-child(1) { grid-column: span 1; }
+
+  /* 联系信息 */
+  .contact-info { grid-template-columns: 1fr; }
+
+  /* 按钮 */
+  .btn-lg { padding: 12px 24px; font-size: 15px; }
+
+  /* 页脚 */
+  .logo { font-size: 19px; }
+  .logo-icon { font-size: 22px; }
+}
+
+/* ============ 大屏优化 (≥1440px) ============ */
+@media (min-width: 1440px) {
+  :root { --container-max: 1280px; }
+  .hero-title { font-size: 72px; }
+  .section-title { font-size: 38px; }
+}
+
+/* ============ 打印样式 ============ */
+@media print {
+  .site-header, .site-footer, .back-top, .nav-toggle, .hero-actions,
+  .filter-group, .section-more, .form-submit, .booking-sidebar,
+  .contact-form-wrap, .map-actions { display: none !important; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: underline; }
+}
